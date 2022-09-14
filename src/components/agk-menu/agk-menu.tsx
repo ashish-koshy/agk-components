@@ -49,7 +49,7 @@ export class AgkMenu {
   @Method() async setFocus(): Promise<void> {
     const element = this.getElementByUniqueClassName(`${Constants.tag}--selection`)
     if (!this.disabled && element && element.focus) {
-      element.focus()
+      element.focus({ preventScroll: true })
       this.handleOnFocus()
     }
   }
@@ -128,12 +128,12 @@ export class AgkMenu {
     return activeElement
   }
 
-  private selectFirstMenuItem(): void {
+  private selectFirstMenuItem(select: boolean = false): void {
     const items = this.getElementByUniqueClassName(`${Constants.tag}--items`)
     const firstItem: HTMLButtonElement = items?.firstElementChild?.querySelector(
       'button',
     )
-    this.handleKeyboardSelection(firstItem, false)
+    this.handleKeyboardSelection(firstItem, select)
   }
 
   private selectLastMenuItem(): void {
@@ -201,7 +201,7 @@ export class AgkMenu {
         this.selectLastMenuItem()
         break
       case 'Home':
-        this.selectFirstMenuItem()
+        this.selectFirstMenuItem(true)
         break
       case 'Enter':
         this.toggleMenu()
