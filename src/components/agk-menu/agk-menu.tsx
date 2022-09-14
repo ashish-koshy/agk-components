@@ -141,7 +141,7 @@ export class AgkMenu {
     let lastItem = items?.lastElementChild?.lastElementChild as HTMLElement
     if (lastItem?.tagName !== 'BUTTON')
       lastItem = lastItem?.lastElementChild as HTMLElement
-      this.handleKeyboardSelection(lastItem)
+    this.handleKeyboardSelection(lastItem)
   }
 
   private selectCurrentMenuItem(): void {

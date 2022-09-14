@@ -5,6 +5,7 @@
   &--host {
     display: inline-block;
     position: relative;
+    text-align: left;
     width: 100%;
   }
 
@@ -94,7 +95,6 @@
     margin-top: 0.25rem;
     margin-right: 2.5rem;
     padding: 0.35rem;
-    text-align: left;
     width: 100%;
     img {
       height: auto;
@@ -115,7 +115,6 @@
   }
 
   &--item-group-title {
-    text-align: left;
     margin-top: 0.5rem;
     padding: 0.35rem;
   }
