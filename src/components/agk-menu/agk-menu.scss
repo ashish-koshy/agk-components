@@ -1,0 +1,125 @@
+@import 'styles';
+
+.agk-menu {
+
+  &--host {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+  }
+
+  &--selection {
+    background-color: $light-grey-1;
+    border: 1px solid $primary-black;
+    border-radius: $border-radius-sm;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: $text-input-height;
+    justify-content: center;
+    position: relative;
+    &:focus {
+      outline: 1px dashed $primary-black;
+      outline-offset: 2px;
+    }
+  }
+
+  &--error {
+    background-color: $white;
+    border-color: $red;
+    color: $primary-black;
+  }
+
+  &--error-text {
+    color: $red;
+    margin-left: 0.25rem;
+    margin-top: 0.5rem;
+  }
+
+  &--disabled {
+    opacity: 0.4;
+    pointer-events: none;
+    touch-action: none;
+  }
+
+  &--hidden {
+    pointer-events: none;
+    touch-action: none;
+    visibility: hidden;
+    z-index: -1;
+  }
+
+  &--selection-label {
+    left: 1rem;
+    position: absolute;
+    font-size: small;
+    top: 0rem;
+  }
+
+  &--selection-value {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  &--selection-value-text {
+    margin-top: 1.35rem;
+  }
+
+  &--items {
+    background-color: $white;
+    border-radius: $border-radius-sm;
+    box-shadow: $box-shadow-sm;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none !important;
+    margin-top: 0.1rem;
+    max-height: 15rem;
+    overflow-y: auto;
+    padding-bottom: 3.5rem;
+    padding: 1rem;
+    position: absolute;
+    width: calc(100% - 2rem);
+    z-index: 1;
+  }
+
+  &--item {
+    background-color: transparent;
+    display: flex;
+    border: none;
+    cursor: pointer;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 0.25rem;
+    margin-right: 2.5rem;
+    padding: 0.35rem;
+    text-align: left;
+    width: 100%;
+    img {
+      height: auto;
+      margin-top: auto;
+      margin-bottom: auto;
+      width: 1.5rem;
+    }
+    &:hover {
+      background-color: $light-grey-1;
+    }
+    &:focus {
+      background-color: $light-grey-2;
+    }
+  }
+
+  &--item-group {
+    border-bottom: 1px solid $primary-black;
+  }
+
+  &--item-group-title {
+    margin-top: 0.5rem;
+    padding: 0.35rem;
+  }
+
+  &--item-active {
+    background-color: $light-grey-1;
+  }
+}

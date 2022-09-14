@@ -1,0 +1,16 @@
+@mixin slide-in-left() {
+  animation: slide-in-left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards,
+    fade-in 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+  
+@mixin slide-elements-left() {
+  @for $i from 1 through 100 {
+    & > * {
+      &:nth-child(#{$i}n) {
+        animation-delay: #{$i * 0.05}s;
+        opacity: 0;
+        @include slide-in-left();
+      }
+    }
+  }
+}

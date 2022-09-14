@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Stencil Component Starter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script type="module" src="/build/agk-components.esm.js"></script>
+    <script nomodule src="/build/agk-components.js"></script>
+  </head>
+  <body>
+    <div class="d-flex justify-content-center align-items-center p-3">
+      <div class="w-100">
+        <agk-menu
+          id="agk-menu-1"
+          place-holder="Select car"
+          label="Car 1"
+        ></agk-menu>
+      </div>
+    </div>
+    <script>
+      /** 
+       * Menu options can be provided as a hash map or 
+       * in other words, a set of key value pairs.
+       * 
+       * The value of the selected option gets emitted 
+       * back to the caller via the "agkMenuChange" event   
+       * */
+      const menuOptions = {
+        /** Normal items */
+        tesla: 'Tesla',
+        toyota: 'Toyota',
+        /** Grouped items */
+        'Swedish Cars': {
+          volvo: 'Volvo',
+          saab: 'Saab',
+        },
+        'German Cars': {
+          mercedes: 'Mercedes',
+          audi: 'Audi',
+        },
+      };
+      const menu = document.getElementById('agk-menu-1')
+      menu.setAttribute('options', JSON.stringify(menuOptions));
+      menu.addEventListener('agkMenuBlur', (event) => console.log('Blur', event));
+      menu.addEventListener('agkMenuFocus', (event) => console.log('Focus', event));
+      menu.addEventListener('agkMenuChange', (event) => console.log('Change', event));
+    </script>
+  </body>
+</html>
