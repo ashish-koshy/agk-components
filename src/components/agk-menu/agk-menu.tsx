@@ -238,7 +238,7 @@ export class AgkMenu {
           isActive ? `${Constants.tag}--${'item-active'}` : ''
         }`}
         onFocus={(): void => this.handleOnFocus()}
-        onClick={(): void => this.selectMenuItem(itemValue, groupTitle)}
+        onClick={(): void => this.selectMenuItem(itemValue, groupTitle, true)}
         onBlur={(event: FocusEvent): void => this.handleFocusOut(event)}
         onKeyUp={(event: KeyboardEvent): void =>
           this.handleKeyboardEvent(event)
@@ -366,9 +366,17 @@ export class AgkMenu {
     )
   }
 
-  private selectMenuItem(itemValue: string, groupTitle?: string): void {
+  private selectMenuItem(
+    itemValue: string, 
+    groupTitle?: string, 
+    closeMenu?: boolean
+  ): void {
     this.value = itemValue
     this.handleOnChange(itemValue, groupTitle)
+    if (closeMenu) {
+      setTimeout(() => (this.menuVisible = false), Constants.renderDelay)
+      this.setFocus()
+    }
   }
 
   private toggleMenu(): void {
