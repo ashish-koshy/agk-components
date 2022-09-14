@@ -17,7 +17,13 @@
           It achieves the same effect but through the use of unordered lists, buttons and other HTML elements  
         </p>
         <br>
-        <label for="cars">Choose a car: </label>
+        <agk-menu
+          id="agk-menu-1"
+          place-holder="Choose a car"
+          label="Car 1"
+        ></agk-menu>
+        <br><br>
+        <label for="cars">Choose a car (vanilla version): </label>
         <br>
         <select  name="cars" id="cars">
           <option value="telsa">Tesla</option>
@@ -32,11 +38,6 @@
           </optgroup>
         </select>
         <br><br>
-        <agk-menu
-          id="agk-menu-1"
-          place-holder="Choose a car"
-          label="Car 1"
-        ></agk-menu>
         <hr>
       </div>
     </div>
